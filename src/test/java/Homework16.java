@@ -22,11 +22,11 @@ public class Homework16 {
         String url = "https://qa.koel.app/";
         driver.get(url);
 
-        WebElement registrationUrl = driver.findElement(By.cssSelector("a[href*=\"https://qa.koel.app/registration\"]"));
+        WebElement registrationUrl = driver.findElement(By.cssSelector("a[href]"));
         registrationUrl.click();
 
         Assert.assertEquals(driver.getCurrentUrl(), "https://qa.koel.app/registration");
-        driver.quit();
+        
     }
 }
 
