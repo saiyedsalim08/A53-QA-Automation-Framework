@@ -1,5 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -22,7 +24,7 @@ public class Homework19 extends BaseTest{
    }
 
    private String playlistDeleteSuccessMsg() {
-      WebElement deleteMsg = driver.findElement(By.cssSelector("div.success.show"));
+      WebElement deleteMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
       return deleteMsg.getText();
    }
 
@@ -33,12 +35,12 @@ public class Homework19 extends BaseTest{
 //   }
 
    private void deletebtn() {
-      WebElement deletePlaylistBtn = driver.findElement(By.xpath("//i[@class='fa fa-times']"));
+      WebElement deletePlaylistBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[@class='fa fa-times']")));
       deletePlaylistBtn.click();
    }
 
    private void selectPlaylist() {
-      WebElement playlist = driver.findElement(By.xpath("//section[@id='playlists']//ul//a[contains(text(),'Test')]"));
+      WebElement playlist = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//section[@id='playlists']//ul//a[contains(text(),'Test')]")));
       playlist.click();
    }
 
