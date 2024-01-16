@@ -40,7 +40,7 @@ public class Homework19 extends BaseTest{
    }
 
    private void selectPlaylist() {
-      WebElement playlist = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//section[@id='playlists']//ul//a[contains(text(),'Test')]")));
+      WebElement playlist = driver.findElement(By.xpath("//section[@id='playlists']//ul//a[contains(text(),'Test')]"));
       playlist.click();
    }
 
