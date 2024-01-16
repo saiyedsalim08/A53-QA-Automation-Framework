@@ -18,7 +18,6 @@ public class Homework19 extends BaseTest{
       clickSubmit();
       selectPlaylist();
       deletebtn();
-//      clickOk();
       playlistDeleteSuccessMsg();
       Assert.assertEquals(playlistDeleteSuccessMsg(),playlistDeletedMessage);
    }
@@ -28,11 +27,6 @@ public class Homework19 extends BaseTest{
       return deleteMsg.getText();
    }
 
-//   private void clickOk() {
-//      WebElement clickOkBtn = driver.findElement(By.xpath("//button[@class='ok']"));
-//      clickOkBtn.click();
-//
-//   }
 
    private void deletebtn() {
       WebElement deletePlaylistBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[@class='fa fa-times']")));
