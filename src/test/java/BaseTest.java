@@ -7,19 +7,21 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 
 public class BaseTest {
     public WebDriver driver;
-//    public String url = "https://qa.koel.app/";
+//public String url = "https://qa.koel.app/";
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
 
+    @Parameters({"BaseUrl"})
     @BeforeMethod
-    public void launchBrowser(){
+    public void launchBrowser(String BaseUrl){
         //Added ChromeOptions argument below to fix websocket error
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
@@ -27,11 +29,12 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
+        //String url = BaseUrl;
+        navigateToUrl(BaseUrl);
     }
 
-    public void navigateToUrl(){
-        String url = "https://qa.koel.app/";
-        driver.get(url);
+    public void navigateToUrl(String givenUrl){
+        driver.get(givenUrl);
     }
 
     public void enterEmail(String email){

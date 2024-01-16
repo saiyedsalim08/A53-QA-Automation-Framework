@@ -7,7 +7,7 @@ public class Homework18 extends BaseTest {
     @Test
 
     public void playSong() {
-        navigateToUrl();
+        //navigateToUrl(BaseUrl);
         enterEmail("salim.saiyed@testpro.io");
         enterPassword("SXTImuRs");
         clickSubmit();

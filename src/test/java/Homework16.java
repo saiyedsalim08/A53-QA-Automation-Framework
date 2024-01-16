@@ -8,8 +8,6 @@ public class Homework16 extends BaseTest{
     @Test(enabled = false)
     public void registrationNavigation(){
         //Added ChromeOptions argument below to fix websocket error
-        launchBrowser();
-        navigateToUrl();
 
         WebElement registrationUrl = driver.findElement(By.cssSelector("a[href]"));
         registrationUrl.click();
