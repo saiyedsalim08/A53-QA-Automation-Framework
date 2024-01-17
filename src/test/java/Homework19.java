@@ -33,7 +33,7 @@ public class Homework19 extends BaseTest{
       deletePlaylistBtn.click();
    }
 
-   private void selectPlaylist() {
+   public void selectPlaylist() {
       WebElement playlist = driver.findElement(By.xpath("//section[@id='playlists']//ul//a[contains(text(),'Test')]"));
       playlist.click();
    }
